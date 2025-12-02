@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login & Dashboard | My App</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="layout">
+        <div class="grid">
+            <!-- LEFT: LOGIN CARD -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="logo">M</div>
+                    <h1>Welcome back</h1>
+                    <p>Log in to continue to your dashboard.</p>
+                </div>
+
+                <form id="loginForm">
+                    <div class="error" id="errorBox">
+                        Please enter a valid email and password (min 6 characters).
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Email address</label>
+                        <div class="input-wrapper">
+                            <input type="email" id="email" placeholder="you@example.com" required />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="password">Password</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="password" placeholder="••••••••" required minlength="6" />
+                            <button type="button" class="toggle-password" id="togglePassword">Show</button>
+                        </div>
+                    </div>
+
+                    <div class="row-between">
+                        <label class="checkbox">
+                            <input type="checkbox" id="remember" />
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="link">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Log in</button>
+
+                    <div class="divider">or continue with</div>
+
+                    <button type="button" class="btn-outline">
+                        <span class="logo-g">G</span>
+                        <span>Sign in with Google</span>
+                    </button>
+                </form>
+
+                <p class="helper-text">
+                    Don’t have an account?
+                    <a href="#">Sign up</a>
+                </p>
+            </div>
+
+            <!-- RIGHT: DASHBOARD / HISTORY -->
+            <div class="card">
+                <div class="dashboard-section">
+                    <div class="dashboard-title">Dashboard access</div>
+                    <div class="dashboard-subtitle">
+                        To view login history, enter the dashboard password.
+                    </div>
+
+                    <div class="field" style="margin-bottom: 8px;">
+                        <label for="dashboardPassword">Dashboard password</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="dashboardPassword" placeholder="Enter dashboard password" />
+                        </div>
+                    </div>
+
+                    <button type="button" id="unlockDashboard" class="btn-small">
+                        Unlock history
+                    </button>
+                    <button type="button" id="lockDashboard" class="btn-small" style="margin-left: 6px; display:none;">
+                        Lock
+                    </button>
+
+                    <div class="dashboard-error" id="dashboardError">
+                        Wrong dashboard password.
+                    </div>
+                </div>
+
+                <div class="dashboard-section" id="historySection" style="display:none;">
+                    <div class="dashboard-title" style="font-size: 16px;">Login history</div>
+                    <div class="dashboard-subtitle">
+                        Shows email, password and time of each successful login.
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Email</th>
+                                    <th>Password</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="historyBody">
+                                <!-- rows will be added by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="empty-state" id="historyEmpty">No logins stored yet.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- External JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
